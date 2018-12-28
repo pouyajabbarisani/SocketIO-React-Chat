@@ -1,5 +1,7 @@
 # SocketIO-React-Simple-Chat
-A simple web based chat application boilerplate built with NodeJS, ExpressJs, **SocketIO**, MongoDB, **React** and Redux by: **[Pouya Jabbarisani](http://pouyajabbarisani.com)**
+A simple web based chat application boilerplate built with NodeJS, ExpressJs, **SocketIO**, MongoDB, **React** and Redux.
+
+ by: **[Pouya Jabbarisani](http://pouyajabbarisani.com)**
 
 ![enter image description here](http://pouyajabbarisani.com/chat.jpg)
 
