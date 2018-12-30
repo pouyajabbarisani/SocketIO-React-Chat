@@ -21,7 +21,7 @@ var port = process.env.PORT || 5555;
 mongoose.Promise = global.Promise;
 mongoose.set('useCreateIndex', true);
 mongoose.set('useNewUrlParser', true);
-mongoose.connect("mongodb://localhost/universitychat");
+mongoose.connect("mongodb://localhost/chat");
 app.set("superSecret", config.secret);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
