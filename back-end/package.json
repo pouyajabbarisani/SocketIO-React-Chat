@@ -1,0 +1,30 @@
+{
+  "name": "university-chat",
+  "version": "1.0.0",
+  "description": "a chat application written by Pouya Jabbarisani for bachelor's last semaster project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat",
+    "university",
+    "project",
+    "socket"
+  ],
+  "author": "Pouya Jabbarisani",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.16.4",
+    "express-validator": "^5.3.0",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.0",
+    "mongoose-auto-increment": "^5.0.1",
+    "multer": "^1.4.1",
+    "socket.io": "^2.2.0",
+    "util": "^0.11.1"
+  }
+}
