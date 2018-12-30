@@ -1,0 +1,1088 @@
+
+/*
++----------------------------------+
+| Full-Stack development by:       |
+| Pouya Jabbarisani                |
+| www.PouyaJabbarisani.com         |
++----------------------------------+
+*/
+
+@import 'foundation.min.css';
+@import 'all.min.css'; // font awesome 
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+@mixin shadow-bg-transition{
+	-webkit-transition: box-shadow 0.2s, color 0.2s, background 0.2s, border 0.2s;
+	-moz-transition: box-shadow 0.2s, color 0.2s, background 0.2s, border 0.2s;
+    -o-transition: box-shadow 0.2s, color 0.2s, background 0.2s, border 0.2s;
+	transition: box-shadow 0.2s, color 0.2s, background 0.2s, border 0.2s;
+}
+
+
+@mixin buttonShadow{
+    box-shadow: 0 0.2em 0.5em -0.1em rgba(0, 0, 0, 0);
+}
+@mixin buttonShadowHover{
+    box-shadow: 0 0.2em 0.9em -0.1em rgba(0, 0, 0, 0.25);
+}
+@mixin buttonShadowPress{
+    box-shadow: 0 0.2em 0.6em -0.1em rgba(0, 0, 0, 0.15);
+}
+@mixin boxShadow{
+    box-shadow: 0 0.2em 0.4em 0.05em rgba(0, 0, 0, 0.07);
+}
+
+
+$brand: #3da6dd;
+$brandLight: #46b9f7;
+$brandDark: #3497cc;
+
+$white: #ffffff;
+
+$text: #444444;
+$lightText: #686868;
+$lighterText: #808080;
+$lightestText: #999999;
+$heading: #444444;
+$bg: #eaeaea;
+
+$borderRadius: 0.2em;
+$borderRadiusMore: 0.4em;
+$borderRadiusRounded: 100%;
+
+
+/* ----------------------------- Fonts ---------------------------- */
+@font-face{
+    font-family:IRANSans-web;
+    src:url(../webfonts/IRANSans-bold-web.eot);
+    src:url(../webfonts/IRANSans-bold-web.eot?#iefix) format("eot"),
+    url(../webfonts/IRANSans-bold-web.woff2) format("woff2"),
+    url(../webfonts/IRANSans-bold-web.woff) format("woff"),
+    url(../webfonts/IRANSans-bold-web.ttf) format("ttf");
+    font-weight: 600;  font-display: block;
+
+}
+@font-face{
+    font-family:IRANSans-web;
+    src:url(../webfonts/IRANSans-Medium-web.eot);
+    src:url(../webfonts/IRANSans-Medium-web.eot?#iefix) format("eot"),
+    url(../webfonts/IRANSans-Medium-web.woff2) format("woff2"),
+    url(../webfonts/IRANSans-Medium-web.woff) format("woff"),
+    url(../webfonts/IRANSans-Medium-web.ttf) format("ttf");
+    font-weight: 500;  font-display: block;
+
+}
+@font-face{
+    font-family:IRANSans-web;
+    src:url(../webfonts/IRANSans-web.eot);
+    src:url(../webfonts/IRANSans-web.eot?#iefix) format("eot"),
+    url(../webfonts/IRANSans-web.woff2) format("woff2"),
+    url(../webfonts/IRANSans-web.woff) format("woff"),
+
+    url(../webfonts/IRANSans-web.ttf) format("ttf");
+    font-weight:400;  font-display: block;
+
+}
+@font-face{
+    font-family:IRANSans-web;
+    src:url(../webfonts/IRANSans-Light-web.eot);
+    src:url(../webfonts/IRANSans-Light-web.eot?#iefix) format("eot"),
+    url(../webfonts/IRANSans-Light-web.woff2) format("woff2"),
+    url(../webfonts/IRANSans-Light-web.woff) format("woff"),
+    url(../webfonts/IRANSans-Light-web.ttf) format("ttf");
+    font-weight: 300;  font-display: block;
+
+}
+
+@font-face{
+    font-family:IRANSans-web;
+    src:url(../webfonts/IRANSans-UltraLight-web.eot);
+    src:url(../webfonts/IRANSans-UltraLight-web.eot?#iefix) format("eot"),
+    url(../webfonts/IRANSans-UltraLight-web.woff2) format("woff2"),
+    url(../webfonts/IRANSans-UltraLight-web.woff) format("woff"),
+    url(../webfonts/IRANSans-UltraLight-web.ttf) format("ttf");
+    font-weight:200;  font-display: block;
+}
+
+
+
+
+/* ---------------------------- Base Styles & classes ----------------------------- */
+body{
+    direction: rtl;    
+    font-family: 'IRANSans-web' !important;
+    background: $bg;
+    color: $text;
+    font-size: 0.92em;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6{
+        font-family: 'IRANSans-web' !important;
+        font-weight: 500;
+        color: $heading;
+        box-sizing: border-box;
+        padding-right: 0.5em;
+        padding-top: 0.3em;
+        margin-bottom: 0.4em;
+        i{
+            color: $lightText !important;
+        }
+    }
+    h1{
+        font-size: 1.4em;
+    }
+    h2{
+        font-size: 1.3em;
+    }
+    h3{
+        font-size: 1.15em;
+    }
+    h4{
+        font-size: 1.1em;
+    }
+    h5{
+        font-size: 1.1em;
+    }
+    h6{
+        font-size: 1.1em;
+    }
+	p{
+        font-size: 1em;
+        color: #3d4447 !important;
+        font-family: 'IRANSans-web' !important;
+        font-weight: 400;
+        margin-bottom: 0.4em !important;
+        color: $text;
+        line-height: 2.1 !important;
+        padding-right: 0.5em;
+    }    
+    a{
+        cursor: pointer !important;
+        text-decoration: none;
+        line-height: 1 !important;
+        color: $brand !important;
+        @include shadow-bg-transition;
+        &:hover{
+            color: $brandLight !important;
+        }
+        &:active{
+            color: $brandDark !important;
+        }
+    }
+    .maxwidth{
+        width: 70em;
+        max-width: 92%;
+        margin: auto;
+    }
+    .baseline{
+        display: flex !important;
+        align-items:  flex-start !important;
+    }
+    .small-text{
+        display: inline-block;
+        font-size: 0.9em !important;
+        padding: 1em 0 0.5em 0 !important;
+    }
+    .auth-container{
+        display: block;
+        width: 23em !important;
+        max-width: 95%;
+        margin: 13vh auto;
+        background: $white;
+        overflow: hidden;
+        border-radius: $borderRadiusMore;
+        padding: 1em 1.5em;
+        @include boxShadow;
+        h1, h2,h3,h4{
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 1.5em !important;
+        }
+    }
+    .alertify{
+        z-index: 1000 !important;
+        direction: rtl !important;
+        .msg{
+            text-align: right !important;
+        }
+    }
+    .normal-padding-box{
+        padding: 1em 1.3em;
+        box-sizing: border-box;
+    }
+    .ltr-direction{
+        direction: ltr !important;
+    }
+    .single-cat-on-edit-skills{
+        padding: 0.5em ;
+        box-sizing: border-box;
+    }
+    .flex-items-top{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+    .flex-items-right{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: flex-start;
+    }
+    .flex-items-left{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: flex-start;
+        align-content: flex-end;
+    }
+    .overflow-hidden{
+        overflow: hidden !important;
+    }
+    .display-none{
+        display: none !important;
+    }
+    .white-bg-box{
+        background: $white;
+        border-radius: $borderRadiusMore;
+        margin-bottom: 1.2em;
+        @include boxShadow;
+    }
+    ::-moz-selection {
+		background: $brandLight;
+		color: $white;
+	}
+    ::-webkit-selection {
+		background: $brandLight;
+		color: $white;
+	}
+    ::selection {
+		background: $brandLight;
+		color: $white;
+	}
+	::-webkit-input-placeholder {
+	  color: #aaa;
+	}
+	::-moz-placeholder {
+        color: #aaa;
+	}
+	:-ms-input-placeholder {
+        color: #aaa;
+	}
+	:-moz-placeholder {
+        color: #aaa;
+    }
+    .input-container{
+        display: inline-block;
+        padding: 0.6em 0.3em 0.3em 0.3em;
+        label{
+            display: inline-block;
+            height: 2.1em;
+            color: #656565 !important;
+            display: inline-block;
+        }
+        .input-label-container{
+            display: block;
+            margin-top: 0.3em !important;
+        }
+    }
+    .fullwidth-input{
+        display: block !important;
+        width: 100% !important;
+        clear: both !important;
+    }
+    .halfwidth-input{
+        display: inline-block;
+        width: 50%;
+        float: right;
+        clear: none !important;
+        @media screen and (max-width: 640px){
+            display: block !important;
+            width: 100% !important;    
+        }
+    }
+    input {
+        position: relative;
+        z-index: 10;
+        box-shadow: none !important; 
+        border: 2px solid #d8d8d8 !important;
+        @include shadow-bg-transition;
+        border-radius: $borderRadius;
+        color: $text;
+        font-size: 0.93em !important;
+        margin-bottom: 0.5em !important;
+    }
+    textarea {
+        position: relative;
+        z-index: 10;
+        box-shadow: none !important; 
+        border: 2px solid #d8d8d8 !important;
+        @include shadow-bg-transition;
+        border-radius: $borderRadius;
+        color: $text;
+        height: 15em !important;
+        max-width: 100%;
+        font-size: 0.93em !important;
+        line-height: 2.2;
+        margin-bottom: 0.5em !important;
+    }
+    textarea:focus,
+    textarea:active {
+        box-shadow: none !important; 
+        border: 2px solid $brandLight !important;
+    }
+    select{
+        position: relative;
+        z-index: 10;
+        box-shadow: none !important; 
+        border: 2px solid #d8d8d8 !important;
+        @include shadow-bg-transition;
+        border-radius: $borderRadius;
+        color: $text;
+        font-size: 0.93em !important;
+        margin-bottom: 0.5em !important;
+    }
+    input[type=text]:focus,input[type=password]:focus,input[type=email]:focus,
+    input[type=text]:active,input[type=password]:active,input[type=email]:active {
+        box-shadow: none !important; 
+        border: 2px solid $brandLight !important;
+    }
+    input[type=number]:focus, input[type=number]:active {
+        border: 2px solid $brandLight ;
+    }
+    input[type=search]:focus, input[type=search]:active {
+        border: 2px solid $brandLight !important;
+    }
+
+    // button styles
+    .button{
+        background: $brand !important;
+        color: $white !important;
+        @include shadow-bg-transition;
+        @include buttonShadow;
+        display: inline-block;
+        outline: none;
+        cursor: pointer !important;
+        font-size: 1em;
+        padding: 0.6em 0.8em 0.7em;
+        margin: 0.6em 0.4em;
+        border-radius: $borderRadius;
+        &:hover{
+            background: $brandLight !important;
+            @include buttonShadowHover;
+            color: $white !important;
+        }
+        &:active{
+            background: $brandDark !important;
+            @include buttonShadowPress;
+            color: $white !important;
+        }
+    }
+    .fullwidth-button{
+        display: block !important;
+        clear: both !important;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important; 
+        text-align: center !important;
+    }
+    .disabled-button{
+        opacity: 0.7 !important;
+        cursor: not-allowed !important;
+        &:hover{
+            box-shadow: none !important;
+        }
+    }
+}
+
+
+
+// button loading styles
+.spinner {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.spinner > div {
+    width: 0.8em;
+    height: 0.8em;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 100%;
+    margin: 0 0.2em;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1s infinite ease-in-out both;
+    animation: sk-bouncedelay 1s infinite ease-in-out both;
+}
+.spinner .bounce1 {
+    -webkit-animation-delay: -0.28s;
+    animation-delay: -0.28s;
+}
+.spinner .bounce2 {
+    -webkit-animation-delay: -0.14s;
+    animation-delay: -0.14s;
+}
+@-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+@keyframes sk-bouncedelay {
+    0%, 80%, 100% { 
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    } 40% { 
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
+
+
+.spinner-dark{
+    margin: 0 auto;
+    text-align: center;
+}
+.spinner-dark > div{
+    width: 1em;
+    height: 1em;
+    background-color: $brandLight !important;
+    border-radius: 100%;
+    margin: 0.3em;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1s infinite ease-in-out both;
+    animation: sk-bouncedelay 1s infinite ease-in-out both;
+}
+.spinner-dark .bounce1 {
+    -webkit-animation-delay: -0.28s;
+    animation-delay: -0.28s;
+}
+.spinner-dark .bounce2 {
+    -webkit-animation-delay: -0.14s;
+    animation-delay: -0.14s;
+}
+
+
+
+
+
+// ------------ chats styles
+#chats-container{
+    margin: 8vh auto;
+    border-radius: $borderRadiusMore;
+    overflow: hidden;
+    width: 70em;
+    max-width: 92%;
+    @include boxShadow;
+    position: relative;
+    @media screen and (max-width: 640px){
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        border-radius: none !important;
+        max-width: 100%;    
+    }
+    ::-webkit-scrollbar {
+        width: 0px !important;
+        background: transparent !important; /* make scrollbar transparent */
+    }
+}
+#chats-list-container{
+    background: $white;
+    @include boxShadow;
+    overflow: hidden;
+    overflow-y: scroll !important;
+    height: 80vh;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+    align-content: flex-start;
+    @media screen and (max-width: 640px){
+        height: 100vh !important;
+    }
+    .single-chat-contact{
+        display: flex !important;
+        border-bottom: 1px solid #eeeeee;
+        cursor: pointer;
+        @include shadow-bg-transition;
+        &:hover{
+            background: #f9f9f9 !important;
+        }
+        &:active{
+            background: #f2f2f2 !important;
+        }
+        user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;    
+    }
+    .single-chat-contact-image-container{
+        display: flex;
+        flex-basis: 4.8em;
+        flex-shrink: 0;
+        img{
+            width: 4em !important;
+            height: 4em !important;
+            margin: 0.6em 0.65em;
+            border-radius: 100% !important;
+        }
+    }
+    .single-chat-contact-text-container{
+        display: flex;
+        flex-grow: 1;
+        padding: 0.3em 0.5em;
+        padding-right: 0.6em !important;
+    }
+    .single-chat-contact-name p{
+        font-weight: 500 !important;
+        font-size: 0.9em !important;
+        color: $text;
+        padding: 0 !important;
+        margin: 0.5em 0 0 0 !important; 
+        line-height: 1.4;
+    }
+    .single-chat-contact-summary{
+        font-size: 0.9em !important;
+        color: $lighterText !important;
+        padding: 0 !important;
+        margin: 0 !important; 
+        line-height: 1.5;
+    }
+    .single-chat-contact-project{
+        font-size: 0.9em !important;
+        color: $brandLight !important;
+        padding: 0 !important;
+        margin: 0 !important; 
+        line-height: 1.5;
+        strong{
+            font-size: 0.9em !important;
+        }
+    }
+    .chat-new-pm{
+        display: inline-block;
+        font-size: 0.8em;
+        color: rgb(255, 255, 255);
+        background: rgb(61, 166, 221);
+        border-radius: 1.3em;
+        padding: 0.4em;
+        font-weight: 500;
+        margin: 0.3em;
+        margin-top: 1em;
+        float: left !important;
+        min-width: 1.5em;
+        line-height: 1 !important;
+        height: 1.5em;
+    }
+    .selected-single-chat-contact{
+        background: $brandLight !important;
+        &:hover{
+            background: $brandLight !important;
+        }
+        &:active{
+            background: $brandDark !important;
+        }
+        .single-chat-contact-name p{
+            color: $white !important;
+        }
+        .single-chat-contact-summary{
+            color: rgba(255,255,255,0.9) !important;
+        }
+        .single-chat-contact-project{
+            color: rgba(255,255,255,0.9) !important;
+        }
+        .chat-new-pm{
+            color: $brand !important;
+            background: $white !important;    
+        }
+    }
+}
+.single-chat-contact-unreaded-count{ 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: stretch;
+    align-content: stretch;        
+}
+#single-chat-container{
+    background: $white;
+    overflow: hidden;
+    height: 80vh;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+    align-content: flex-start;
+    @media screen and (max-width: 640px){
+        height: 100vh !important;
+    }
+    #chat-ta{
+        border: none !important;
+        height: inherit !important;
+        resize: none !important;
+        padding-bottom: 0.4em !important;
+    }
+    .admin-single-chat-header{
+        @media screen and (max-width: 1024px){
+            flex-basis: 160px !important;
+        }
+        .single-chat-header-info{
+            
+            @media screen and (max-width: 1024px){
+                flex-direction: column !important;
+            }
+        }
+    }
+    .single-chat-header{
+        display: flex;
+        flex-basis: 80px;
+        flex-shrink: 0;
+        overflow: hidden;
+        box-shadow: 0 0.2em 2em -0.2em rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 50;
+        border-right: 1px solid #e4e4e4;
+        @media screen and (max-width: 640px){
+            border-right: none !important;
+        }
+        .single-chat-header-info{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: stretch;
+            align-content: stretch;        
+        }
+        // .admin-single-chat-header-info{
+        //     display: flex;
+        //     flex-direction: column;
+        //     flex-wrap: nowrap;
+        //     justify-content: flex-start;
+        //     align-items: stretch;
+        //     align-content: stretch;        
+        // }
+        #single-chat-back-btn{
+            display: inline-block;
+            float: left;
+            height: 2.5em !important;
+            margin: 1.4em 1em !important;
+            background: #eaeaea;
+            padding: 0.3em 0.9em !important;
+            border-radius: $borderRadiusMore !important;
+            @include shadow-bg-transition;
+            cursor: pointer;
+            color: $lightText !important;
+            i{
+                font-size: 1.8em !important;
+                line-height: 1 !important;
+                padding: 0 !important;
+            }
+            &:hover{
+                background: #f2f2f2 !important;
+            }
+            &:active{
+                background: #eeeeee !important;
+            }
+        }
+        .avatar-container{
+            margin: 0.6em;
+            margin-left: 1em !important;
+        }
+        img{
+            min-width: 4.5em;
+            min-height: 4.5em;
+            width: 4.5em;
+            height: 4.5em;
+            border-radius: 100%;
+            float: right;
+        }
+        p{
+            font-weight: 500;
+            margin: 0;
+            margin-top: 0.8em;
+            padding: 0;
+            margin-bottom: 0 !important;
+            color: $text !important;
+        }
+        span{
+            font-size: 0.9em;
+            color: $lighterText;
+            margin-bottom: 0.5em;
+        }
+    }
+    .single-chat-body{
+        min-height: 0;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: stretch;
+        align-content: flex-start;    
+    }
+    .single-chat-content-container{
+        min-height: 0;
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+        overflow-y: scroll;
+        flex-direction: column-reverse;   
+        background: #e7eff7 url('/images/chatbg.jpg') repeat top left;
+        background-attachment: scroll !important; 
+        background-size: 300px 300px; 
+        flex-wrap: nowrap;
+    }
+    .single-chat-content{
+        display: flex;
+        flex: 0 0 auto;
+        overflow-y: scroll !important;
+        height: 100%;
+        article{
+            a{
+                display: inline-block !important;
+                clear: both;
+                padding: 0.5em 0.5em !important;
+                border-radius: $borderRadiusMore;
+                background: rgba(0,0,0,0.1);
+                color: $lightText !important;
+                font-size: 0.9em !important;
+                margin: 0.7em 0.1em;
+                @include shadow-bg-transition;
+                cursor: pointer;
+                &:hover{
+                    background: rgba(0,0,0,0.07) !important;
+                }
+                &:active{
+                    background: rgba(0,0,0,0.1) !important;
+                }
+            }
+        }
+    }
+    
+    .single-chat-send-message-container{
+        display: flex;
+        flex-basis: 80px;
+        flex-shrink: 0;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        align-content: flex-start;    
+        padding-bottom: 1.3em !important;
+        box-shadow: 0 -0.2em 2em -0.2em rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 50;
+        border-right: 1px solid #e4e4e4;
+
+        @media screen and (max-width: 640px){
+            border-right: none !important;
+            flex-basis: 90px !important;
+            textarea{
+                height: 90px !important;
+            }
+        }
+    }
+    .chat-user-pm{
+        display: block;
+        min-width: 5em;
+        max-width: 25em;
+        background: #effdde;
+        border-radius: 0.5em 0.5em 0 0.5em;
+        margin: 0.3em 1em 0.5em 0.6em;
+        float: right;
+        box-shadow: 0 0.2em 0.4em 0em rgba(0, 0, 0, 0.15);
+        position: relative;
+        padding: 0.1em 0.6em;
+        p{
+            font-size: 0.9em !important;
+            color: $text !important;
+            margin: 0.2em !important;
+            padding: 0 !important;
+            line-height: 1.8 !important;
+        }
+        .date-span{
+            font-size: 0.8em !important;
+            color: #a8bc8f !important;
+            display: block; 
+            width: 100%;
+            line-height: 1.8;
+        }
+    }
+    .chat-user-pm:after {
+        content: '';
+        position: absolute;
+        right: 0.3em;
+        top: 100%;
+        width: 0em;
+        height: 0;
+        border: 0.6em solid transparent;
+        border-top: 1em solid transparent;
+        border-left-color: #effdde;
+        border-right: 0;
+        border-bottom: 0;
+        margin-top: -1em;
+        margin-right: -0.6em;
+    }
+    .chat-contact-pm{
+        display: block;
+        min-width: 5em;
+        max-width: 25em;
+        background: $white;
+        border-radius: 0.5em 0.5em 0.5em 0;
+        margin: 0.3em 0.6em 0.5em 1em;
+        float: left;
+        box-shadow: 0 0.2em 0.4em 0em rgba(0, 0, 0, 0.15);
+        position: relative;
+        padding: 0.1em 0.6em;
+        p{
+            font-size: 0.9em !important;
+            color: $lightText !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            line-height: 1.8 !important;
+
+        }
+        .date-span{
+            font-size: 0.8em !important;
+            color: #aaaaaa !important;
+            display: block; 
+            width: 100%;
+            line-height: 1.8;
+        }
+    }
+    .chat-contact-pm:after {
+        content: '';
+        position: absolute;
+        left: 0.3em;
+        top: 100%;
+        width: 0em;
+        height: 0;
+        border: 0.6em solid transparent;
+        border-top: 1em solid transparent;
+        border-right-color: #ffffff;
+        border-left: 0;
+        border-bottom: 0;
+        margin-top: -1em;
+        margin-left: -0.6em;
+    }
+    .center-flex{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;    
+    }
+    .chat-system-pm{
+        display: block;
+        min-width: 5em;
+        max-width: 25em;
+        background: #b2d3f0;
+        border-radius: 0.5em;
+        margin: 0.8em 0.6em 1em 0.6em;
+        box-shadow: 0 0.2em 0.4em 0em rgba(0, 0, 0, 0.15);
+        position: relative;
+        text-align: center !important;
+        padding: 0.1em 0.6em;
+        p{
+            font-size: 0.9em !important;
+            color: $lightText !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            line-height: 1.8 !important;
+
+        }
+        .date-span{
+            font-size: 0.8em !important;
+            color: #88a3bc !important;
+            display: block; 
+            width: 100%;
+            line-height: 1.8;
+        }
+
+    }
+    #chat-attachment-btn{
+        float: left !important;
+        margin: 0.5em;
+        padding: 0.2em 0.5em;
+        padding-bottom: 0 !important;
+        border-radius: $borderRadiusMore;
+        background: $white;
+        @include shadow-bg-transition;
+        cursor: pointer;
+        >div{
+            border: none !important;
+            width: initial !important;
+            height: initial !important;
+        }
+        input{
+            margin: 0 !important;
+            padding: 0 0.2em !important;
+        }
+        &:hover{
+            background: #f4f4f4;
+        }
+        &:active{
+            background: #eeeeee;
+        }
+        i{
+            font-size: 1.2em; 
+            color: #999999;
+            line-height: 1.3;
+        }
+    }
+
+}
+.chat-uploading-text{
+    font-size: 0.8em !important;
+    color: $lightText !important; 
+}
+.chat-attached-file-text{
+    font-size: 0.8em;
+    line-height: 1.3 !important;
+    margin: 0;
+    padding: 0;
+    margin-top: -0.4em;
+    color: $lighterText !important;
+}
+#single-chat-container-select{
+    background: #e7eff7 url('/images/chatbg.jpg') repeat top left;
+    background-attachment: scroll !important; 
+    background-size: 300px 300px;
+    border-radius: 0.4em 0 0 0.4em;
+    overflow: hidden;
+    height: 80vh;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+    align-content: center;
+    @media screen and (max-width: 640px){
+        height: 100vh !important;
+    }
+    .single-chat-first-select-chat{
+        font-weight: 500;
+        color: #808080 !important;
+        background: #fff;
+        padding: 0.1em 0.4em !important;
+        margin: 0 !important;
+        border-radius: $borderRadiusMore;
+        @include boxShadow;
+    }
+}
+
+
+#contacts-header{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: flex-start;
+}
+#edit-profile-container{
+    display: flex;
+    flex-basis: 2.2em;
+    flex-shrink: 0;
+    padding: 0.3em 0.6em 0 0.3em !important;
+}
+#edit-profile {
+    padding: 0.3em;
+    color: #aaa !important;
+    @include shadow-bg-transition;
+    cursor: pointer;
+    &:hover{
+        color: #888 !important;
+    }
+    i{
+        font-size: 1.3em;
+        @include shadow-bg-transition;
+    }
+}
+#search-contact-input-container{
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 0.8em 0.2em 0 0.8em !important;
+}
+
+
+
+
+// edit profile
+#edit-profile-page-container{
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0; 
+    bottom: 0;
+    background: #ffffff !important;
+    padding: 1em !important;
+    z-index: 100;
+}
+#edit-profile-page-close-button{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1em;
+    line-height: 1;
+    padding: 0.4em 0.5em;
+    color: #888888;
+    @include shadow-bg-transition;
+    cursor: pointer;
+    &:hover{
+        color: #555555;
+    }
+    i{
+        font-size: 1.5em !important;
+    }
+}
+#edit-profile-page-container-inner{
+    display: flex !important;
+    width: 100%;
+    padding: 1em;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    h1{
+        font-size: 1.2em !important;
+    }
+}
+.dropzone-no-image-box{
+    display: block;
+    width: 250px; 
+    max-width: 90%;
+    height: 250px; 
+    max-height: 90%;
+    background: #eee;
+    cursor: pointer;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+    align-content: center;
+    border: 2px dashed #aaa;
+    color: #777 !important;
+    padding: 1em !important;
+    line-height: 2 !important;
+    text-align: center;
+    font-size: 0.9em !important;
+}
